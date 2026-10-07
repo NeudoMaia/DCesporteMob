@@ -1,0 +1,91 @@
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import dotenv from 'dotenv';
+import stationsHandler from './api/stations';
+import analyzeHandler from './api/analyze';
+
+// Carregar variáveis de ambiente do .env
+dotenv.config();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const app = express();
+const PORT = parseInt(process.env.PORT || '3000', 10);
+const HOST = process.env.HOST || '0.0.0.0';
+
+// Middleware de parsing de JSON e URL-encoded
+app.use(express.json({ limit: '1mb' }));
+app.use(express.urlencoded({ extended: true, limit: '1mb' }));
+
+// Rota de Healthcheck
+app.get('/api/health', (req, res) => {
+  res.status(200).json({
+    status: 'online',
+    system: 'DCESPORTE - Monitoramento Térmico e Esportivo Fortaleza',
+    timestamp: new Date().toISOString()
+  });
+});
+
+// Rotas de API
+app.all('/api/stations', async (req, res) => {
+  try {
+    await stationsHandler(req, res);
+  } catch (err: any) {
+    console.error('Erro ao processar /api/stations:', err);
+    if (!res.headersSent) {
+      res.status(500).json({ error: 'Erro interno ao processar estações' });
+    }
+  }
+});
+
+app.all('/api/analyze', async (req, res) => {
+  try {
+    await analyzeHandler(req, res);
+  } catch (err: any) {
+    console.error('Erro ao processar /api/analyze:', err);
+    if (!res.headersSent) {
+      res.status(500).json({ error: 'Erro interno ao processar análise' });
+    }
+  }
+});
+
+// Middleware para normalizar múltiplas barras na URL (ex: //municipio -> /municipio)
+app.use((req, res, next) => {
+  if (req.url.includes('//')) {
+    req.url = req.url.replace(/\/{2,}/g, '/');
+  }
+  next();
+});
+
+// Servir arquivos estáticos do frontend (dist)
+const distPath = path.join(__dirname, 'dist');
+
+// Rotas explícitas para GeoJSONs do mapa de Fortaleza
+app.get(['/municipio_fortaleza.geojson', '/dccalor/municipio_fortaleza.geojson', '/dcesporte/municipio_fortaleza.geojson'], (req, res) => {
+  res.sendFile(path.join(distPath, 'municipio_fortaleza.geojson'));
+});
+
+app.get(['/bairros_fortaleza.geojson', '/dccalor/bairros_fortaleza.geojson', '/dcesporte/bairros_fortaleza.geojson'], (req, res) => {
+  res.sendFile(path.join(distPath, 'bairros_fortaleza.geojson'));
+});
+
+app.use(express.static(distPath));
+app.use('/dccalor', express.static(distPath));
+app.use('/dcesporte', express.static(distPath));
+
+// Fallback para SPA (qualquer rota desconhecida direciona para index.html)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(distPath, 'index.html'));
+});
+
+// Inicialização do servidor
+app.listen(PORT, HOST, () => {
+  console.log(`====================================================`);
+  console.log(`  DCESPORTE - Monitoramento Térmico & Esportivo     `);
+  console.log(`  Servidor de Produção rodando com sucesso!         `);
+  console.log(`  Endereço: http://${HOST}:${PORT}                  `);
+  console.log(`  Healthcheck: http://${HOST}:${PORT}/api/health    `);
+  console.log(`====================================================`);
+});
