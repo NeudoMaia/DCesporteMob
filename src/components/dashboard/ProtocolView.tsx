@@ -262,7 +262,7 @@ export const ProtocolView: React.FC<ProtocolViewProps> = ({ analysis, loading, o
 
             <div className="space-y-4">
               {/* 1. Cãibras Térmicas */}
-              <div className="p-4 rounded-xl bg-amber-50/60 border border-amber-200 space-y-2">
+              <div className="p-4 rounded-xl bg-amber-100 border border-amber-300 space-y-2">
                 <div className="flex items-center justify-between">
                   <h4 className="text-xs font-black text-amber-900 uppercase tracking-wider flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-amber-500" />
@@ -281,7 +281,7 @@ export const ProtocolView: React.FC<ProtocolViewProps> = ({ analysis, loading, o
               </div>
 
               {/* 2. Síncope do Calor */}
-              <div className="p-4 rounded-xl bg-orange-50/60 border border-orange-200 space-y-2">
+              <div className="p-4 rounded-xl bg-orange-100 border border-orange-300 space-y-2">
                 <div className="flex items-center justify-between">
                   <h4 className="text-xs font-black text-orange-900 uppercase tracking-wider flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-orange-500" />
@@ -300,7 +300,7 @@ export const ProtocolView: React.FC<ProtocolViewProps> = ({ analysis, loading, o
               </div>
 
               {/* 3. Exaustão Térmica */}
-              <div className="p-4 rounded-xl bg-rose-50/60 border border-rose-200 space-y-2">
+              <div className="p-4 rounded-xl bg-rose-100 border border-rose-300 space-y-2">
                 <div className="flex items-center justify-between">
                   <h4 className="text-xs font-black text-rose-900 uppercase tracking-wider flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-rose-500" />
@@ -319,7 +319,7 @@ export const ProtocolView: React.FC<ProtocolViewProps> = ({ analysis, loading, o
               </div>
 
               {/* 4. Golpe de Calor por Esforço */}
-              <div className="p-4 rounded-xl bg-red-100/70 border-2 border-red-500 space-y-2">
+              <div className="p-4 rounded-xl bg-red-100 border-2 border-red-600 space-y-2">
                 <div className="flex items-center justify-between">
                   <h4 className="text-xs font-black text-red-950 uppercase tracking-wider flex items-center gap-2">
                     <span className="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse" />
@@ -428,7 +428,7 @@ export const ProtocolView: React.FC<ProtocolViewProps> = ({ analysis, loading, o
                     key={st.id}
                     className={cn(
                       "p-3 rounded-xl border transition-all flex items-center justify-between",
-                      isTop ? "bg-red-50/70 border-red-200 shadow-xs" : "bg-slate-50 border-slate-200/80"
+                      isTop ? "bg-red-100 border-red-300 shadow-xs" : "bg-slate-50 border-slate-200/80"
                     )}
                   >
                     <div>

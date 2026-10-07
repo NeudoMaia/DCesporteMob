@@ -370,7 +370,7 @@ export const HydrationCalculator: React.FC<HydrationCalculatorProps> = ({
                   </h5>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {riskAssessment.clinicalRisks.map((risk, idx) => (
-                      <div key={idx} className="text-[11px] text-red-900 bg-red-50/70 p-2 rounded-lg border border-red-200/60 flex items-center gap-2">
+                      <div key={idx} className="text-[11px] font-medium text-red-950 bg-red-100 p-2 rounded-lg border border-red-300 flex items-center gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0" />
                         <span>{risk}</span>
                       </div>

@@ -136,7 +136,7 @@ export const SportScientificManual: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Exaustão por Calor */}
-          <div className="p-5 rounded-xl border border-amber-200 bg-amber-50/50 space-y-3">
+          <div className="p-5 rounded-xl border border-amber-300 bg-amber-100 space-y-3">
             <div className="flex items-center justify-between">
               <span className="text-xs font-black uppercase tracking-wider text-amber-800 bg-amber-200/80 px-2.5 py-0.5 rounded-full">
                 Exaustão Térmica (Heat Exhaustion)
@@ -159,7 +159,7 @@ export const SportScientificManual: React.FC = () => {
           </div>
 
           {/* Golpe de Calor */}
-          <div className="p-5 rounded-xl border-2 border-red-500 bg-red-50/60 space-y-3">
+          <div className="p-5 rounded-xl border-2 border-red-600 bg-red-100 space-y-3">
             <div className="flex items-center justify-between">
               <span className="text-xs font-black uppercase tracking-wider text-white bg-red-600 px-2.5 py-0.5 rounded-full">
                 GOLPE DE CALOR POR ESFORÇO (EHS) — EMERGÊNCIA
