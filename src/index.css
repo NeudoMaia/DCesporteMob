@@ -100,12 +100,21 @@
 }
 
 [data-theme="dark"] .bg-blue-50,
-[data-theme="dark"] .bg-blue-50\/60 {
+[data-theme="dark"] .bg-blue-50\/60,
+[data-theme="dark"] .bg-blue-100 {
     background-color: #172554;
 }
 
 [data-theme="dark"] .bg-cyan-50 {
     background-color: #083344;
+}
+
+[data-theme="dark"] .bg-cyan-100 {
+    background-color: #083344;
+}
+
+[data-theme="dark"] .bg-purple-100 {
+    background-color: #3b0764;
 }
 
 [data-theme="dark"] .bg-emerald-50,

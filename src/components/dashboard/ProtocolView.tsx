@@ -142,7 +142,7 @@ export const ProtocolView: React.FC<ProtocolViewProps> = ({ analysis, loading, o
               </p>
             </div>
 
-            <div className="flex items-center gap-4 bg-white/90 backdrop-blur-xs p-4 rounded-xl border border-slate-300 shadow-sm shrink-0">
+            <div className="flex items-center gap-4 bg-slate-100 p-4 rounded-xl border border-slate-300 shadow-sm shrink-0">
               <div className="text-center">
                 <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">Temp. Real</span>
                 <span className="text-2xl font-mono font-black text-red-600">{criticalStation.temp}°C</span>
@@ -162,7 +162,7 @@ export const ProtocolView: React.FC<ProtocolViewProps> = ({ analysis, loading, o
 
           {/* Prescrição Médica Esportiva Imediata para a Estação Mais Quente */}
           <div className="mt-5 grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="bg-white/90 p-4 rounded-xl border border-slate-200/80 shadow-xs space-y-1">
+            <div className="bg-blue-100 p-4 rounded-xl border border-blue-300 shadow-xs space-y-1">
               <span className="text-[10px] font-black uppercase tracking-wider text-blue-700 flex items-center gap-1.5">
                 <Droplets className="w-3.5 h-3.5" /> Hidratação Recomendada (SBMEE)
               </span>
@@ -174,7 +174,7 @@ export const ProtocolView: React.FC<ProtocolViewProps> = ({ analysis, loading, o
               </p>
             </div>
 
-            <div className="bg-white/90 p-4 rounded-xl border border-slate-200/80 shadow-xs space-y-1">
+            <div className="bg-amber-100 p-4 rounded-xl border border-amber-300 shadow-xs space-y-1">
               <span className="text-[10px] font-black uppercase tracking-wider text-amber-700 flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5" /> Pausas Mandatórias (ACSM / NATA)
               </span>
@@ -186,7 +186,7 @@ export const ProtocolView: React.FC<ProtocolViewProps> = ({ analysis, loading, o
               </p>
             </div>
 
-            <div className="bg-white/90 p-4 rounded-xl border border-slate-200/80 shadow-xs space-y-1">
+            <div className="bg-purple-100 p-4 rounded-xl border border-purple-300 shadow-xs space-y-1">
               <span className="text-[10px] font-black uppercase tracking-wider text-purple-700 flex items-center gap-1.5">
                 <ShieldCheck className="w-3.5 h-3.5" /> Diretriz Competitiva (COI / FIFA)
               </span>
@@ -247,7 +247,7 @@ export const ProtocolView: React.FC<ProtocolViewProps> = ({ analysis, loading, o
           </div>
 
           {/* Quadro Clínico Fisiológico das Patologias do Exercício no Calor */}
-          <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-6">
+          <div className="bg-slate-100 border border-slate-300 rounded-2xl p-6 shadow-sm space-y-6">
             <div className="flex items-center justify-between border-b border-slate-100 pb-4">
               <div className="flex items-center gap-2.5">
                 <Stethoscope className="w-5 h-5 text-blue-600" />
@@ -346,7 +346,7 @@ export const ProtocolView: React.FC<ProtocolViewProps> = ({ analysis, loading, o
           </div>
 
           {/* Protocolos Específicos e Recomendações Acionáveis */}
-          <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-4">
+          <div className="bg-slate-100 border border-slate-300 rounded-2xl p-6 shadow-sm space-y-4">
             <h3 className="text-xs font-bold text-slate-800 uppercase tracking-widest border-b border-slate-100 pb-3">
               Recomendações Práticas Acionáveis ({analysis?.recommendations?.length || 3})
             </h3>
@@ -380,7 +380,7 @@ export const ProtocolView: React.FC<ProtocolViewProps> = ({ analysis, loading, o
               ]).map((rec) => (
                 <div
                   key={rec.id}
-                  className="p-4 rounded-xl border border-slate-200 bg-slate-50/60 hover:bg-white hover:border-slate-300 transition-all flex gap-3.5"
+                  className="p-4 rounded-xl border border-slate-300 bg-slate-100 hover:bg-slate-200 hover:border-slate-400 transition-all flex gap-3.5"
                 >
                   <div className="p-2.5 rounded-lg bg-blue-100 text-blue-700 shrink-0 h-fit">
                     <ShieldCheck className="w-5 h-5" />
@@ -407,7 +407,7 @@ export const ProtocolView: React.FC<ProtocolViewProps> = ({ analysis, loading, o
         <div className="space-y-6">
 
           {/* Ranking Térmico Esportivo em Tempo Real */}
-          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-4">
+          <div className="bg-slate-100 border border-slate-300 rounded-2xl p-5 shadow-sm space-y-4">
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <h4 className="text-xs font-black text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
                 <Flame className="w-4 h-4 text-orange-600" />
@@ -458,14 +458,14 @@ export const ProtocolView: React.FC<ProtocolViewProps> = ({ analysis, loading, o
           </div>
 
           {/* Diretrizes Rápidas por Modalidade em Fortaleza */}
-          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-4">
+          <div className="bg-slate-100 border border-slate-300 rounded-2xl p-5 shadow-sm space-y-4">
             <h4 className="text-xs font-black text-slate-800 uppercase tracking-wider flex items-center gap-1.5 border-b border-slate-100 pb-3">
               <Trophy className="w-4 h-4 text-blue-600" />
               Conduta por Modalidade em Fortaleza
             </h4>
 
             <div className="space-y-3 text-xs">
-              <div className="p-3 rounded-xl bg-blue-50/50 border border-blue-100 space-y-1">
+              <div className="p-3 rounded-xl bg-blue-100 border border-blue-300 space-y-1">
                 <p className="font-bold text-blue-900 flex items-center gap-1.5">
                   <span>🏃</span> Corrida na Beira-Mar
                 </p>
@@ -474,7 +474,7 @@ export const ProtocolView: React.FC<ProtocolViewProps> = ({ analysis, loading, o
                 </p>
               </div>
 
-              <div className="p-3 rounded-xl bg-cyan-50/50 border border-cyan-100 space-y-1">
+              <div className="p-3 rounded-xl bg-cyan-100 border border-cyan-300 space-y-1">
                 <p className="font-bold text-cyan-900 flex items-center gap-1.5">
                   <span>🛶</span> Remo & Canoa Va'a (Mucuripe)
                 </p>
@@ -483,7 +483,7 @@ export const ProtocolView: React.FC<ProtocolViewProps> = ({ analysis, loading, o
                 </p>
               </div>
 
-              <div className="p-3 rounded-xl bg-amber-50/50 border border-amber-100 space-y-1">
+              <div className="p-3 rounded-xl bg-amber-100 border border-amber-300 space-y-1">
                 <p className="font-bold text-amber-900 flex items-center gap-1.5">
                   <span>🏐</span> Beach Tennis / Arenas
                 </p>
@@ -492,7 +492,7 @@ export const ProtocolView: React.FC<ProtocolViewProps> = ({ analysis, loading, o
                 </p>
               </div>
 
-              <div className="p-3 rounded-xl bg-purple-50/50 border border-purple-100 space-y-1">
+              <div className="p-3 rounded-xl bg-purple-100 border border-purple-300 space-y-1">
                 <p className="font-bold text-purple-900 flex items-center gap-1.5">
                   <span>🏋️</span> Academias & Boxes
                 </p>
